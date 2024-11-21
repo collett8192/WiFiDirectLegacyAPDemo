@@ -33,8 +33,22 @@ SimpleConsole::~SimpleConsole()
     _hostedNetwork.RegisterPrompt(nullptr);
 }
 
-void SimpleConsole::RunConsole()
+void SimpleConsole::RunConsole(int argc, _TCHAR* argv[])
 {
+    for(int i = 1; i < argc; i++)
+    {
+        std::wstring arg(argv[i]);
+        if(arg == L"-start" || arg == L"-stop" || arg == L"-quit" || arg == L"-exit")
+        {
+            ExecuteCommand(arg.substr(1));
+        }
+        else if(i < argc - 1)
+        {
+            ExecuteCommand(arg.substr(1) + L" " + argv[i+1]);
+            i++;
+        }
+    }
+
     std::wstring command;
     bool running = true;
 

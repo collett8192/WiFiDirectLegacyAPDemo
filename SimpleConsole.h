@@ -20,7 +20,7 @@ public:
     SimpleConsole();
     virtual ~SimpleConsole();
 
-    void RunConsole();
+    void RunConsole(int argc, _TCHAR* argv[]);
 
     // IWlanHostedNetworkListener Implementation
 

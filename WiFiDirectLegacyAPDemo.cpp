@@ -29,7 +29,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
     SimpleConsole console;
 
-    console.RunConsole();
+    console.RunConsole(argc, argv);
 
     return 0;
 }
